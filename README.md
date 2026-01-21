@@ -60,6 +60,10 @@ npm start
 /matches
 ```
 
+```console
+/groups?dates=11/06/2026,12/06/2026...
+```
+
 </div>
 
 <!-- Author links -->

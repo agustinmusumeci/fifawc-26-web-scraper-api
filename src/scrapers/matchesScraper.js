@@ -2,13 +2,35 @@ import Scraper from "./scraper.js";
 
 export default class MatchesScraper extends Scraper {
   async extract({ matchesDates = [] }) {
-    const matches = await this.evaluate(() => {
+    const matches = await this.evaluate((matchesDates) => {
       const days = document.querySelectorAll(".col-xl-12.col-lg-12.ff-pb-24");
+
+      const months = {
+        January: 1,
+        February: 2,
+        March: 3,
+        April: 4,
+        May: 5,
+        June: 6,
+        July: 7,
+        August: 8,
+        September: 9,
+        October: 10,
+        November: 11,
+        December: 12,
+      };
 
       const matches = [];
 
       days.forEach((day) => {
-        const date = day.querySelector(".matches-container_title__ATLsl")?.innerText.trim() ?? null;
+        const utcDate = day.querySelector(".matches-container_title__ATLsl")?.innerText.trim() ?? null;
+        const splitedUtcDate = utcDate?.split(" ") ?? null;
+
+        if (!utcDate || utcDate.length < 4) return;
+
+        const date = splitedUtcDate.at(1) + "/" + String(months[splitedUtcDate.at(2)]).padStart(2, "0") + "/" + splitedUtcDate.at(3);
+
+        if (!matchesDates.includes(date) && matchesDates.length > 0) return;
 
         const dayMatches = day.querySelectorAll("a[href*='/match-centre/match']");
 
@@ -28,7 +50,7 @@ export default class MatchesScraper extends Scraper {
           const link = "fifa.com" + match.getAttribute("href");
 
           matches.push({
-            date: date,
+            date: utcDate,
             teams: teams,
             time: time,
             stage: stage,

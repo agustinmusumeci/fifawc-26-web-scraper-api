@@ -5,7 +5,7 @@ export const matchesRouter = Router();
 
 matchesRouter.get("/", async (req, res) => {
   try {
-    const matchesDates = req?.query?.dates ?? [];
+    const matchesDates = req?.query?.dates?.split(",") ?? [];
 
     const matches = await matchesController.getMatches(matchesDates);
 
