@@ -14,6 +14,52 @@ API that provides data for teams, mathces and groups for FIFA 2026 Men's World C
 
 </div>
 
+## Project structure
+
+```text
+/
+│   │ 
+├── src/
+│   │ 
+│   ├── app.js 
+│   ├── server.js 
+│   │ 
+│   ├── routes/
+│   │   └── groupsRouter.js
+│   │   └── matchesRouter.js
+│   │   └── teamsRouter.js
+│   │ 
+│   ├── controllers/
+│   │   └── groupsController.js
+│   │   └── matchesController.js
+│   │   └── teamsController.js
+│   │
+│   ├── repositories/
+│   │   └── groupsRepository.js
+│   │   └── matchesRepository.js
+│   │   └── teamsRepository.js
+│   │ 
+│   ├── scrapers/
+│   │   └── scarper.js
+│   │   └── groupsScraper.js
+│   │   └── matchesScraper.js
+│   │   └── teamsScraper.js
+│   │
+│   └── tests/
+│       └── app.test.js
+│       └── groups.test.js
+│       └── matches.test.js
+│       └── teams.test.js
+│ 
+├── public/
+│   └── images/
+│       └── fifa-logo.png
+│  
+└── package.json
+└── LICENSE
+└── CONTRIBUTING
+```
+
 ## 📖 Quick start and user guide
 
 ### Installation
