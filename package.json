@@ -5,9 +5,11 @@
   "license": "MIT",
   "author": "Agustín Musumeci",
   "type": "module",
-  "main": "app.js",
+  "main": "./dist/src/app.ts",
   "scripts": {
-    "start": "node --watch ./src/server.js",
+    "dev": "node --loader ts-node/esm ./src/server.ts",
+    "start": "node ./dist/server.js",
+    "build": "tsc",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles"
   },
   "dependencies": {
@@ -15,8 +17,14 @@
     "puppeteer": "^24.33.0"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.0.10",
+    "@types/supertest": "^6.0.3",
     "jest": "^30.2.0",
     "superagent": "^10.3.0",
-    "supertest": "^7.2.2"
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2"
   }
 }

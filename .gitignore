@@ -7,3 +7,6 @@ node_modules/
 
 # macOS-specific files
 .DS_Store
+
+# Build JS
+dist/

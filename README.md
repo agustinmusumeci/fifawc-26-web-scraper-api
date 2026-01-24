@@ -21,23 +21,23 @@ API that provides data for teams, mathces and groups for FIFA 2026 Men's World C
 │   │ 
 ├── src/
 │   │ 
-│   ├── app.js 
-│   ├── server.js 
+│   ├── app.ts 
+│   ├── server.ts 
 │   │ 
 │   ├── routes/
-│   │   └── groupsRouter.js
-│   │   └── matchesRouter.js
-│   │   └── teamsRouter.js
+│   │   └── groupsRouter.ts
+│   │   └── matchesRouter.ts
+│   │   └── teamsRouter.ts
 │   │ 
 │   ├── controllers/
-│   │   └── groupsController.js
-│   │   └── matchesController.js
-│   │   └── teamsController.js
+│   │   └── groupsController.ts
+│   │   └── matchesController.ts
+│   │   └── teamsController.ts
 │   │
 │   ├── repositories/
-│   │   └── groupsRepository.js
-│   │   └── matchesRepository.js
-│   │   └── teamsRepository.js
+│   │   └── groupsRepository.ts
+│   │   └── matchesRepository.ts
+│   │   └── teamsRepository.ts
 │   │ 
 │   ├── scrapers/
 │   │   └── scarper.js
@@ -46,18 +46,22 @@ API that provides data for teams, mathces and groups for FIFA 2026 Men's World C
 │   │   └── teamsScraper.js
 │   │
 │   └── tests/
-│       └── app.test.js
-│       └── groups.test.js
-│       └── matches.test.js
-│       └── teams.test.js
+│       └── app.test.ts
+│       └── groups.test.ts
+│       └── matches.test.ts
+│       └── teams.test.ts
 │ 
 ├── public/
 │   └── images/
 │       └── fifa-logo.png
 │  
+├── dist/ (compiled application)
+│  
 └── package.json
 └── LICENSE
 └── CONTRIBUTING
+└── jest.config.mjs
+└── tsconfig.json
 ```
 
 ## 📖 Quick start and user guide
@@ -73,6 +77,18 @@ npm install
 ### Running the API
 
 By default the API will run on **http://localhost:4000**
+
+```console
+npm run dev
+```
+
+If you want to build the application
+
+```console
+npm run build
+```
+
+And the you will run the compiled application with
 
 ```console
 npm start

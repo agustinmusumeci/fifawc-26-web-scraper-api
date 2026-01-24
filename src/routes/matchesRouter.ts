@@ -1,13 +1,15 @@
 import { Router } from "express";
 import matchesController from "../controllers/matchesController.js";
+import type { Request, Response } from "express";
+import type { Match } from "../types/matches.ts";
 
 export const matchesRouter = Router();
 
-matchesRouter.get("/", async (req, res) => {
+matchesRouter.get("/", async (req: Request, res: Response) => {
   try {
-    const matchesDates = req?.query?.dates?.split(",") ?? [];
+    const matchesDates = (typeof req?.query?.dates === "string" ? req?.query?.dates?.split(",") : []) ?? [];
 
-    const matches = await matchesController.getMatches(matchesDates);
+    const matches: Array<Match> = await matchesController.getMatches(matchesDates);
 
     return res.status(200).json({ message: "FIFA 2026 World Cup Matches", data: matches, success: true });
   } catch (e) {
